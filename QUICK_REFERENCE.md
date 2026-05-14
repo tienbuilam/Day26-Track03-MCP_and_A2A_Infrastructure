@@ -9,7 +9,7 @@ uv sync
 
 # Copy environment file
 cp .env.example .env
-# Sau đó sửa .env, thêm OPENROUTER_API_KEY
+# Sau đó sửa .env, thêm OPENAI_API_KEY
 ```
 
 ### Chạy Stages (Standalone)
@@ -24,7 +24,7 @@ uv run python stages/stage_2_rag_tools/main.py
 uv run python stages/stage_3_single_agent/main.py
 
 # Stage 4: Multi-Agent (in-process)
-uv run python stages/stage_4_milti_agent/main.py
+uv run python stages/stage_4_multi_agent/main.py
 ```
 
 ### Chạy Stage 5 (Distributed)
@@ -153,7 +153,7 @@ response = await client.send_message(request)
 cat .env
 
 # Test API key
-curl https://openrouter.ai/api/v1/models \
+curl https://api.openai.com/v1/models \
   -H "Authorization: Bearer YOUR_KEY_HERE"
 ```
 
@@ -185,7 +185,7 @@ grep "trace_id" <log_output>
 
 **"API key invalid"**
 - Check `.env` file có đúng key không
-- Key phải bắt đầu bằng `sk-or-v1-...`
+- Key phải bắt đầu bằng `sk-...`
 
 **"Module not found"**
 - Chưa cài dependencies: `uv sync`
@@ -296,7 +296,7 @@ Tax Agent    Compliance Agent
 
 - **LangGraph Docs**: https://langchain-ai.github.io/langgraph/
 - **A2A Protocol**: https://github.com/google/A2A
-- **OpenRouter**: https://openrouter.ai/docs
+- **OpenAI**: https://platform.openai.com/docs
 - **Python Type Hints**: https://docs.python.org/3/library/typing.html
 
 ---

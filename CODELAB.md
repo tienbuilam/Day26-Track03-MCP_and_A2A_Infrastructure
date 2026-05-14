@@ -18,7 +18,7 @@ Sau khi hoàn thành codelab này, bạn sẽ:
 ### Yêu Cầu Hệ Thống
 - Python 3.11 trở lên
 - [uv](https://docs.astral.sh/uv/) package manager
-- API key từ [OpenRouter](https://openrouter.ai)
+- API key từ [OpenAI](https://platform.openai.com)
 
 ### Cài Đặt
 
@@ -32,7 +32,7 @@ uv sync
 
 # Cấu hình environment
 cp .env.example .env
-# Sửa file .env, thêm OPENROUTER_API_KEY của bạn
+# Sửa file .env, thêm OPENAI_API_KEY của bạn
 ```
 
 ---
@@ -238,12 +238,12 @@ Thêm `verbose=True` vào `create_react_agent()` để xem chi tiết quá trìn
 **Bước 1:** Chạy demo Stage 4
 
 ```bash
-uv run python stages/stage_4_milti_agent/main.py
+uv run python stages/stage_4_multi_agent/main.py
 ```
 
 **Bước 2:** Phân tích kiến trúc
 
-Mở `stages/stage_4_milti_agent/main.py`:
+Mở `stages/stage_4_multi_agent/main.py`:
 
 1. Tìm `class State(TypedDict)` — đây là shared state
 2. Tìm các agent functions: `law_agent`, `tax_agent`, `compliance_agent`
@@ -411,7 +411,7 @@ Tích hợp LangSmith hoặc Prometheus để monitor agent performance.
 
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
 - [A2A Protocol Spec](https://github.com/google/A2A)
-- [OpenRouter API](https://openrouter.ai/docs)
+- [OpenAI API](https://platform.openai.com/docs)
 - Architecture diagrams: `docs/*.svg`
 
 ## Hỗ Trợ

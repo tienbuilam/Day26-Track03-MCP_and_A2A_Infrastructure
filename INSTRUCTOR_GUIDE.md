@@ -16,10 +16,10 @@ Gửi email cho sinh viên:
 Các bạn cần cài đặt trước:
 1. Python 3.11+ (kiểm tra: python --version)
 2. uv package manager: curl -LsSf https://astral.sh/uv/install.sh | sh
-3. Tạo tài khoản OpenRouter: https://openrouter.ai
+3. Tạo tài khoản OpenAI: https://platform.openai.com
 4. Clone repo: git clone <repo-url>
 5. Chạy: cd legal_multiagent && uv sync
-6. Copy .env.example thành .env và thêm OPENROUTER_API_KEY
+6. Copy .env.example thành .env và thêm OPENAI_API_KEY
 
 Test: uv run python stages/stage_1_direct_llm/main.py
 Nếu chạy được là OK!
@@ -28,7 +28,7 @@ Nếu chạy được là OK!
 ### 2. Kiểm Tra Phòng Lab
 
 - [ ] Mỗi máy có Python 3.11+
-- [ ] Internet ổn định (cần gọi OpenRouter API)
+- [ ] Internet ổn định (cần gọi OpenAI API)
 - [ ] Ports 10000-10103 không bị firewall chặn
 - [ ] Projector để demo
 
@@ -146,7 +146,7 @@ So sánh với Stage 2:
 
 **Demo:**
 ```bash
-uv run python stages/stage_4_milti_agent/main.py
+uv run python stages/stage_4_multi_agent/main.py
 ```
 
 Vẽ trên bảng:
@@ -309,7 +309,7 @@ Giao cho sinh viên tự học:
 
 - LangGraph docs: https://langchain-ai.github.io/langgraph/
 - A2A spec: https://github.com/google/A2A
-- OpenRouter: https://openrouter.ai/docs
+- OpenAI: https://platform.openai.com/docs
 
 #### Feedback
 
@@ -327,11 +327,11 @@ Nhờ sinh viên điền form feedback (Google Form):
 **1. API Key không hoạt động:**
 ```bash
 # Check .env file
-cat .env | grep OPENROUTER_API_KEY
+cat .env | grep OPENAI_API_KEY
 
 # Test API key
-curl https://openrouter.ai/api/v1/models \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY"
+curl https://api.openai.com/v1/models \
+  -H "Authorization: Bearer $OPENAI_API_KEY"
 ```
 
 **2. Port bị chiếm:**
@@ -353,7 +353,7 @@ uv sync
 **4. LLM response chậm:**
 - Bình thường, có thể mất 30-60s
 - Giải thích: nhiều LLM calls tuần tự
-- Có thể switch sang model nhanh hơn: `OPENROUTER_MODEL=openai/gpt-3.5-turbo`
+- Có thể switch sang model khác: `OPENAI_MODEL=gpt-4o`
 
 ### Điều Chỉnh Thời Gian
 
